@@ -9,3 +9,7 @@ def read_root():
 @app.get("/teste")
 def teste():
     return {"msg": "teste"}
+
+@app.get("/status")
+def status():
+    return {"status": "ok"}
