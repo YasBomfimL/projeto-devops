@@ -15,3 +15,7 @@ def teste():
 @app.get("/status")
 def status():
     return {"status": "ok"}
+
+@app.get("/ci")
+def ci():
+    return {"ci": "ok"}
