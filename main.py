@@ -19,3 +19,5 @@ def status():
 @app.get("/ci")
 def ci():
     return {"ci": "ok"}
+
+## Teste CI/CD 2
