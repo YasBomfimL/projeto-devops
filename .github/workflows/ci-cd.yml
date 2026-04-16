@@ -2,12 +2,12 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main, feature-api ]
+    branches: [ main, recurso-ci-cd ]
   pull_request:
     branches: [ main ]
 
 jobs:
-  build:
+  ci:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,12 +25,31 @@ jobs:
 
     - name: Testar aplicação
       run: |
-        python -c "from main import app; print('App carregou com sucesso')"
+        python -c "from main import app; print('CI funcionando')"
 
-  deploy:
+  cd:
     runs-on: ubuntu-latest
-    needs: build
+    needs: ci
 
     steps:
-    - name: Deploy simulado
-      run: echo "Deploy realizado com sucesso 🚀"
+    - name: Simulando deploy
+      run: |
+        echo "Deploy iniciado..."
+        echo "Aplicação enviada com sucesso!"
+        echo "CD funcionando"
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: ci
+
+    steps:
+    - name: Checkout código
+      uses: actions/checkout@v4
+
+    - name: Build da imagem Docker
+      run: |
+        docker build -t projeto-devops .
+
+    - name: Rodar container (teste)
+      run: |
+        docker run -d -p 8000:8000 projeto-devops
