@@ -6,7 +6,7 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"Olá": "Mundo"}
+    return {"message": "Olá Mundo"}
 
 @app.get("/teste")
 def teste():
@@ -20,4 +20,4 @@ def status():
 def ci():
     return {"ci": "ok"}
 
-## Teste CI/CD 2
+## Teste discord
