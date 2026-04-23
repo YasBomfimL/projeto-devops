@@ -20,4 +20,4 @@ def status():
 def ci():
     return {"ci": "ok"}
 
-## Teste CI/CD 2
+## Teste discord
