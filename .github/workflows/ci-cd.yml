@@ -21,11 +21,11 @@ jobs:
 
     - name: Instalar dependências
       run: |
-        pip install fastapi uvicorn
+        pip install fastapi uvicorn pytest httpx
 
-    - name: Testar aplicação
+    - name: Rodar testes
       run: |
-        python -c "from main import app; print('CI funcionando')"
+        pytest -v
 
   cd:
     runs-on: ubuntu-latest

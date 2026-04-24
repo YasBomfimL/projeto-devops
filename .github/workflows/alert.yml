@@ -1,8 +1,7 @@
 name: Alerta Discord
 
 on:
-  push:
-    branches: [ "main" ]
+  - push 
 
 jobs:
   notify:
